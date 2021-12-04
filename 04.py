@@ -33,7 +33,7 @@ for l in range(len(numbers2draw)):
             for j in range(5):
                 if boards[i,j,k] == numbers2draw[l]:
                     crossed[i, j, k] = 1
-                if sum(crossed[i,:,k]) == 5:
+                if sum(crossed[i,:,k]) == 5 or sum(crossed[:,j,k]) == 5:
                     winning_board[k] = 1
                     won_boards = sum(winning_board[:])
                     if winner == 0:
@@ -42,18 +42,3 @@ for l in range(len(numbers2draw)):
                     if all_winning== 0 and won_boards == n:
                         print( sum(sum(boards[:,:,k]*(1-crossed[:,:,k]))) * numbers2draw[l] )
                         all_winning= 1
-                        break
-                elif sum(crossed[:,j,k]) == 5:
-                    winning_board[k] = 1
-                    won_boards = sum(winning_board[:])
-                    if winner == 0:
-                        print( sum(sum(boards[:,:,k]*(1-crossed[:,:,k]))) * numbers2draw[l] )
-                        winner = 1
-                    if all_winning== 0 and won_boards == n:
-                        print( sum(sum(boards[:,:,k]*(1-crossed[:,:,k]))) * numbers2draw[l] )
-                        all_winning= 1
-                        break
-
-        
-                    
-                
